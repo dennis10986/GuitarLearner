@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guitar Ear Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Guitar Ear Trainer</h1>
+    <p class="subtitle">Select a string, listen to the note, and type your answer (e.g. <code>g5</code>)</p>
+
+    <section class="string-select">
+      <h2>Choose a String</h2>
+      <div class="string-buttons">
+        <button class="string-btn" data-string="e" title="6th string (Low E)">Low E</button>
+        <button class="string-btn" data-string="a" title="5th string (A)">A</button>
+        <button class="string-btn" data-string="d" title="4th string (D)">D</button>
+        <button class="string-btn" data-string="g" title="3rd string (G)">G</button>
+        <button class="string-btn" data-string="b" title="2nd string (B)">B</button>
+        <button class="string-btn" data-string="E" title="1st string (High E)">High E</button>
+      </div>
+    </section>
+
+    <section class="play-section" id="playSection" hidden>
+      <div class="current-string">
+        Practicing: <span id="currentStringLabel"></span>
+      </div>
+
+      <div class="loader" id="loader">Loading guitar samples...</div>
+
+      <div class="play-buttons">
+        <button class="play-btn" id="playBtn" disabled>&#9654; New Note</button>
+        <button class="replay-btn" id="replayBtn" disabled>&#8635; Replay</button>
+      </div>
+
+      <div class="answer-area">
+        <input
+          type="text"
+          id="answerInput"
+          placeholder="Type your answer (e.g. g5)"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          maxlength="4"
+        />
+        <button class="submit-btn" id="submitBtn">Check</button>
+        <button class="reveal-btn" id="revealBtn" disabled>Reveal</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="score-board">
+        <span>Correct: <strong id="correct">0</strong></span>
+        <span>Total: <strong id="total">0</strong></span>
+        <span>Streak: <strong id="streak">0</strong></span>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/tone@14/build/Tone.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
